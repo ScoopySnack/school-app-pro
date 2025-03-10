@@ -8,8 +8,10 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-public class TeacherDAOImpl implements ITeacherDAO{
+public class TeacherDAOImpl implements ITeacherDAO {
+
     @Override
     public Teacher insert(Teacher teacher) throws TeacherDAOException {
         String sql = "INSERT INTO teachers (firstname, lastname, vat, fathername, phone_num, email, " +
@@ -29,9 +31,9 @@ public class TeacherDAOImpl implements ITeacherDAO{
             ps.setString(6, teacher.getEmail());
             ps.setString(7, teacher.getStreet());
             ps.setString(8, teacher.getStreetNum());
-            ps.setString(9, teacher.getZipcode());
+            ps.setString(9, teacher.getZipCode());
             ps.setInt(10, teacher.getCityId());
-            ps.setString(11, teacher.getUuid());
+            ps.setString(11, UUID.randomUUID().toString());
             ps.setTimestamp(12, Timestamp.valueOf(LocalDateTime.now()));
             ps.setTimestamp(13, Timestamp.valueOf(LocalDateTime.now()));
 
@@ -45,11 +47,10 @@ public class TeacherDAOImpl implements ITeacherDAO{
             // logging
             return insertedTeacher;
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             // logging
             throw new TeacherDAOException("SQL Error. Teacher with vat: " + teacher.getVat() + " not inserted.");
         }
-
     }
 
     @Override
@@ -71,7 +72,7 @@ public class TeacherDAOImpl implements ITeacherDAO{
             ps.setString(6, teacher.getEmail());
             ps.setString(7, teacher.getStreet());
             ps.setString(8, teacher.getStreetNum());
-            ps.setString(9, teacher.getZipcode());
+            ps.setString(9, teacher.getZipCode());
             ps.setInt(10, teacher.getCityId());
             ps.setTimestamp(11, Timestamp.valueOf(teacher.getUpdatedAt()));
             ps.setInt(12,teacher.getId());
@@ -83,7 +84,7 @@ public class TeacherDAOImpl implements ITeacherDAO{
             // logging
             return updatedTeacher;
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             // logging
             throw new TeacherDAOException("SQL Error. Teacher with vat: " + teacher.getVat() + " not updated.");
         }
@@ -126,7 +127,7 @@ public class TeacherDAOImpl implements ITeacherDAO{
             }
             return teacher;
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             // logging
             throw new TeacherDAOException("SQL Error. Teacher with id: " + id + " error in finding.");
         }
@@ -153,14 +154,14 @@ public class TeacherDAOImpl implements ITeacherDAO{
             }
             return teachers;
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             // logging
             throw new TeacherDAOException("SQL Error. Error in get all teachers.");
         }
     }
 
     @Override
-    public Teacher getByUuid(String uuid) throws TeacherDAOException {
+    public Teacher getByUUID(String uuid) throws TeacherDAOException {
         String sql = "SELECT * FROM teachers WHERE uuid = ?";
         Teacher teacher = null;
         ResultSet rs;
@@ -207,7 +208,7 @@ public class TeacherDAOImpl implements ITeacherDAO{
             }
             return teachers;
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             // logging
             throw new TeacherDAOException("SQL Error. Error in get teachers by lastname.");
         }
@@ -233,7 +234,7 @@ public class TeacherDAOImpl implements ITeacherDAO{
             }
             return teacher;
         } catch (SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             // logging
             throw new TeacherDAOException("SQL Error. Teacher with vat: " + vat + " error in finding.");
         }

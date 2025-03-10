@@ -12,17 +12,20 @@ public class Teacher {
     private String email;
     private String street;
     private String streetNum;
-    private String zipcode;
+    private String zipCode;
     private Integer cityId;
     private String uuid;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-//    private Boolean enabled;  //soft delete
+    // private Boolean enabled; // soft delete
 
     public Teacher() {
+
     }
 
-    public Teacher(Integer id, String firstname, String lastname, String vat, String fatherName, String phoneNum, String email, String street, String streetNum, String zipcode, Integer cityId, String uuid, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Teacher(Integer id, String firstname, String lastname, String vat, String fatherName,
+                   String phoneNum, String email, String street, String streetNum, String zipCode,
+                   Integer cityId, String uuid, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -32,7 +35,7 @@ public class Teacher {
         this.email = email;
         this.street = street;
         this.streetNum = streetNum;
-        this.zipcode = zipcode;
+        this.zipCode = zipCode;
         this.cityId = cityId;
         this.uuid = uuid;
         this.createdAt = createdAt;
@@ -111,12 +114,12 @@ public class Teacher {
         this.streetNum = streetNum;
     }
 
-    public String getZipcode() {
-        return zipcode;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
     public Integer getCityId() {
