@@ -160,8 +160,10 @@ public class TeacherDAOImpl implements ITeacherDAO {
         }
     }
 
+
+
     @Override
-    public Teacher getByUUID(String uuid) throws TeacherDAOException {
+    public Teacher getByUuid(String uuid) throws TeacherDAOException {
         String sql = "SELECT * FROM teachers WHERE uuid = ?";
         Teacher teacher = null;
         ResultSet rs;

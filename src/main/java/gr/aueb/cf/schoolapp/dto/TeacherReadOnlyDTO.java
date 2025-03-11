@@ -2,15 +2,15 @@ package gr.aueb.cf.schoolapp.dto;
 
 public class TeacherReadOnlyDTO extends BaseDTO {
     private Integer id;
-    private Integer uuid;
+    private String uuid;
 
     public TeacherReadOnlyDTO(){
 
     }
 
-    public TeacherReadOnlyDTO(Integer id, Integer uuid,String firstname, String lastname, String vat, String fatherName, String phoneNum,
-                              String email, String street, String streetNum, String zipCode,
-                              Integer cityId) {
+    public TeacherReadOnlyDTO(Integer id, String uuid, String firstname, String lastname,
+                              String vat, String fatherName, String phoneNum,
+                              String email, String street, String streetNum, String zipCode, Integer cityId) {
         super(firstname, lastname, vat, fatherName, phoneNum, email, street, streetNum, zipCode, cityId);
         this.id = id;
         this.uuid = uuid;
@@ -24,11 +24,11 @@ public class TeacherReadOnlyDTO extends BaseDTO {
         this.id = id;
     }
 
-    public Integer getUuid() {
+    public String getUuid() {
         return uuid;
     }
 
-    public void setUuid(Integer uuid) {
+    public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 }

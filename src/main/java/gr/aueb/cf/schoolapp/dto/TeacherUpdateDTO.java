@@ -7,10 +7,10 @@ public class TeacherUpdateDTO extends BaseDTO {
 
     }
 
-    public TeacherUpdateDTO(String firstname, String lastname, String vat, String fatherName, String phoneNum,
+    public TeacherUpdateDTO(String firstname, String lastname, String vat, String fathername, String phoneNum,
                             String email, String street, String streetNum, String zipCode,
                             Integer cityId, Integer id) {
-        super(firstname, lastname, vat, fatherName, phoneNum, email, street, streetNum, zipCode, cityId);
+        super(firstname, lastname, vat, fathername, phoneNum, email, street, streetNum, zipCode, cityId);
         this.id = id;
     }
 

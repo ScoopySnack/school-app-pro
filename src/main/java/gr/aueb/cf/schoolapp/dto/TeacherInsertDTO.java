@@ -7,9 +7,9 @@ public class TeacherInsertDTO extends BaseDTO {
     }
 
     public TeacherInsertDTO(String firstname, String lastname, String vat,
-                            String fatherName, String phoneNum, String email,
+                            String fathername, String phoneNum, String email,
                             String street, String streetNum, String zipCode, Integer cityId) {
-        super(firstname, lastname, vat, fatherName, phoneNum, email, street, streetNum, zipCode, cityId);
+        super(firstname, lastname, vat, fathername, phoneNum, email, street, streetNum, zipCode, cityId);
     }
 
 }

@@ -5,7 +5,7 @@ public abstract class BaseDTO {
     private String firstname;
     private String lastname;
     private String vat;
-    private String fatherName;
+    private String fathername;
     private String phoneNum;
     private String email;
     private String street;
@@ -16,11 +16,11 @@ public abstract class BaseDTO {
     public BaseDTO() {
     }
 
-    public BaseDTO(String firstname, String lastname, String vat, String fatherName, String phoneNum, String email, String street, String streetNum, String zipCode, Integer cityId) {
+    public BaseDTO(String firstname, String lastname, String vat, String fathername, String phoneNum, String email, String street, String streetNum, String zipCode, Integer cityId) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.vat = vat;
-        this.fatherName = fatherName;
+        this.fathername = fathername;
         this.phoneNum = phoneNum;
         this.email = email;
         this.street = street;
@@ -53,12 +53,12 @@ public abstract class BaseDTO {
         this.vat = vat;
     }
 
-    public String getFatherName() {
-        return fatherName;
+    public String getFathername() {
+        return fathername;
     }
 
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
+    public void setFathername(String fathername) {
+        this.fathername = fathername;
     }
 
     public String getPhoneNum() {

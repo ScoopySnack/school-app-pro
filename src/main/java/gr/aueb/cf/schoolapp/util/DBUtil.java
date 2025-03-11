@@ -11,8 +11,8 @@ public class DBUtil {
     private static Connection connection;
 
     static {
-        ds.setUrl("jdbc:mysql://localhost:3306/school7dbpro?serverTimezone=UTC");
-        ds.setUsername("user7pro");
+        ds.setUrl("jdbc:mysql://localhost:3306/shcool7dbpro?serverTimezone=UTC");
+        ds.setUsername("adm");
         ds.setPassword(System.getenv("PASSWD_USER7"));
         ds.setInitialSize(10);
         ds.setMinIdle(10);
