@@ -8,6 +8,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.Serial;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +32,9 @@ import gr.aueb.cf.schoolapp.model.City;
 
 public class UpdateTeacherPage extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
+
 	private JPanel contentPane;
 	private JTextField firstnameText;
 	private JTextField lastnameText;
@@ -93,7 +96,7 @@ public class UpdateTeacherPage extends JFrame {
 		govImage.setBounds(0, 0, 100, 52);
 		header.add(govImage);
 
-		JLabel firstLastName = new JLabel("ΑΘΑΝΑΣΙΟΣ ΑΝΔΡΟΥΤΣΟΣ");
+		JLabel firstLastName = new JLabel("ΑΓΓΕΛΙΚΗ ΝΙΚΟΛΑΟΥ");
 		firstLastName.setForeground(Color.WHITE);
 		firstLastName.setBounds(649, 11, 183, 30);
 		header.add(firstLastName);

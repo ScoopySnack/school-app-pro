@@ -17,19 +17,21 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.Serial;
+import java.util.Objects;
 
 public class LandingPage extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
 
 
-	public LandingPage() {
+    public LandingPage() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LandingPage.class.getResource("/images/eduv2.png")));
 		setTitle("Ποιότητα στην Εκπαίδευση");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 760, 464);
-		contentPane = new JPanel();
+        JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -42,7 +44,7 @@ public class LandingPage extends JFrame {
 		header.setLayout(null);
 
 		JLabel govImage = new JLabel("");
-		govImage.setIcon(new ImageIcon(LandingPage.class.getResource("/images/gov_logo_small.png")));
+		govImage.setIcon(new ImageIcon(Objects.requireNonNull(LandingPage.class.getResource("/images/gov_logo_small.png"))));
 		govImage.setBounds(10, 0, 154, 56);
 		header.add(govImage);
 

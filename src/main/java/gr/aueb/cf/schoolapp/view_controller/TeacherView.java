@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.Serial;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,11 +26,14 @@ import java.util.List;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Objects;
 import javax.swing.JSeparator;
 
 public class TeacherView extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
+
 	private JPanel contentPane;
 	private JLabel kwdikosText;
 	private JLabel firstnameText;
@@ -79,11 +83,11 @@ public class TeacherView extends JFrame {
 		contentPane.add(header);
 
 		JLabel govImage = new JLabel("");
-		govImage.setIcon(new ImageIcon(TeacherView.class.getResource("/images/gov_logo_small.png")));
+		govImage.setIcon(new ImageIcon(Objects.requireNonNull(TeacherView.class.getResource("/images/gov_logo_small.png"))));
 		govImage.setBounds(0, 0, 100, 52);
 		header.add(govImage);
 
-		JLabel firstLastName = new JLabel("ΑΘΑΝΑΣΙΟΣ ΑΝΔΡΟΥΤΣΟΣ");
+		JLabel firstLastName = new JLabel("ΑΓΓΕΛΙΚΗ ΝΙΚΟΛΑΟΥ");
 		firstLastName.setForeground(Color.WHITE);
 		firstLastName.setBounds(562, 11, 173, 30);
 		header.add(firstLastName);

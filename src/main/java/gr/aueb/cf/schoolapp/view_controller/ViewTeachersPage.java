@@ -71,7 +71,7 @@ public class ViewTeachersPage extends JFrame {
 		govImage.setBounds(0, 0, 100, 52);
 		header.add(govImage);
 
-		JLabel firstLastName = new JLabel("ΑΘΑΝΑΣΙΟΣ ΑΝΔΡΟΥΤΣΟΣ");
+		JLabel firstLastName = new JLabel("ΑΓΓΕΛΙΚΗ ΝΙΚΟΛΑΟΥ");
 		firstLastName.setForeground(Color.WHITE);
 		firstLastName.setBounds(674, 11, 183, 30);
 		header.add(firstLastName);
@@ -280,7 +280,7 @@ public class ViewTeachersPage extends JFrame {
 //					JOptionPane.YES_NO_OPTION);
 //			if (answer == JOptionPane.YES_OPTION) {
 //				int rowsAffected = ps.executeUpdate();
-//				JOptionPane.showMessageDialog(null, rowsAffected + " γρααμμή/ες διαγράφηκαν", "Διαγραφή",
+//				JOptionPane.showMessageDialog(null, rowsAffected + "γραμμή/ες διαγράφηκαν", "Διαγραφή",
 //						JOptionPane.INFORMATION_MESSAGE);
 //			} else {
 //				return;

@@ -69,7 +69,7 @@ public class Dashboard extends JFrame {
 		govImage.setBounds(0, 0, 100, 52);
 		header.add(govImage);
 
-		JLabel firstLastName = new JLabel("ΑΘΑΝΑΣΙΟΣ ΑΝΔΡΟΥΤΣΟΣ");
+		JLabel firstLastName = new JLabel("ΑΓΓΕΛΙΚΗ ΝΙΚΟΛΑΟΥ");
 		firstLastName.setForeground(new Color(255, 255, 255));
 		firstLastName.setBounds(562, 11, 183, 30);
 		header.add(firstLastName);

@@ -99,7 +99,7 @@ public class InsertTeacherPage extends JFrame {
 		govImage.setBounds(0, 0, 100, 52);
 		header.add(govImage);
 
-		JLabel firstLastName = new JLabel("ΑΘΑΝΑΣΙΟΣ ΑΝΔΡΟΥΤΣΟΣ");
+		JLabel firstLastName = new JLabel("ΑΓΓΕΛΙΚΗ ΝΙΚΟΛΑΟΥ");
 		firstLastName.setForeground(Color.WHITE);
 		firstLastName.setBounds(649, 11, 183, 30);
 		header.add(firstLastName);

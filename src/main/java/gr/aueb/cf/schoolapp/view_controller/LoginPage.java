@@ -16,13 +16,16 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.io.Serial;
 import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
 public class LoginPage extends JFrame {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
+
 	private JPanel contentPane;
 	private JTextField username;
 	private JPasswordField password;
