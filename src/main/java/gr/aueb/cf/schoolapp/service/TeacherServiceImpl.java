@@ -11,6 +11,8 @@ import gr.aueb.cf.schoolapp.mapper.Mapper;
 import gr.aueb.cf.schoolapp.model.Teacher;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class TeacherServiceImpl implements ITeacherService {
 
@@ -47,22 +49,87 @@ public class TeacherServiceImpl implements ITeacherService {
 
     @Override
     public TeacherReadOnlyDTO updateTeacher(Integer id, TeacherUpdateDTO dto) throws TeacherDAOException, TeacherAlreadyExistsException, TeacherNotFoundException {
-        return null;
+        Teacher teacher;
+        Teacher fetchedTeacher;
+        Teacher updatedTeacher;
+
+        try {
+            if (teacherDAO.getById(id) == null) {
+                throw new TeacherNotFoundException("Teacher with id: " + id + " not found");
+            }
+
+            fetchedTeacher = teacherDAO.getTeacherByVat(dto.getVat());
+            if (fetchedTeacher != null && fetchedTeacher.getId().equals(dto.getId())) {
+                throw new TeacherAlreadyExistsException("Teacher with vat: " + dto.getVat() + " already exists");
+            }
+
+            teacher = Mapper.mapTeacherUpdateToModel(dto);
+            updatedTeacher = teacherDAO.update(teacher);
+            // logging
+            return Mapper
+                    .mapTeacherToReadOnlyDTO(updatedTeacher)
+                    .orElseThrow(() -> new TeacherDAOException("Error in Mapping"));
+
+        } catch (TeacherDAOException | TeacherAlreadyExistsException | TeacherNotFoundException e) {
+            // logging
+            // rollback
+            throw e;
+        }
     }
 
     @Override
     public void deleteTeacher(Integer id) throws TeacherDAOException, TeacherNotFoundException {
+        try {
+            if (teacherDAO.getById(id) == null) {
+                throw new TeacherNotFoundException("Teacher with id: " + id + " not found");
+            }
+            // logging
+            teacherDAO.delete(id);
 
+        } catch (TeacherDAOException | TeacherNotFoundException e) {
+            //e.printStackTrace();
+            // logging
+            // rollback
+            throw e;
+        }
     }
 
     @Override
     public TeacherReadOnlyDTO getTeacherById(Integer id) throws TeacherDAOException, TeacherNotFoundException {
-        return null;
+        Teacher teacher;
+
+        try {
+            teacher = teacherDAO.getById(id);
+
+            // logging
+            return Mapper.mapTeacherToReadOnlyDTO(teacher)
+                    .orElseThrow(() -> new TeacherNotFoundException(""));
+        } catch (TeacherDAOException | TeacherNotFoundException e) {
+            e.printStackTrace();
+            // logging
+            throw e;
+        }
     }
 
     @Override
     public List<TeacherReadOnlyDTO> getAllTeachers() throws TeacherDAOException {
-        return List.of();
+        List<Teacher> teachers;
+
+        try {
+            teachers = teacherDAO.getAll();
+            // logging
+//            return teachers.stream().map(Mapper::mapTeacherToReadOnlyDTO)
+//                    .flatMap(Optional::stream)
+//                    .collect(Collectors.toList());
+
+            return teachers.stream()
+                    .map(t -> Mapper.mapTeacherToReadOnlyDTO(t).orElse(null))
+                    .collect(Collectors.toList());
+        } catch (TeacherDAOException e) {
+            e.printStackTrace();
+            // logging
+            throw e;
+        }
     }
 
     @Override
